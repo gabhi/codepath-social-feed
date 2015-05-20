@@ -35,7 +35,17 @@ function useExternalPassportStrategy(OauthStrategy, config, accountType) {
             })
 
         }
- 
+        // console.log("><account", account)
+        console.log("><req user", req.user)
+
+        // try {
+        //   user  = User.promise.find({
+        //         accountID
+        //     })
+        // } catch (e) {
+        //     console.log(">e", e)
+        // }
+
         if (!user) {
             user = new User({})
         }

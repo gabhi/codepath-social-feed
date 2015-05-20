@@ -1,3 +1,4 @@
+// config/database.js
 module.exports = {
   'development': {
     'type': 'mongo',

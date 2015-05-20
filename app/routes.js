@@ -67,7 +67,7 @@ module.exports = (app) => {
     app.get('/timeline', isLoggedIn, then(async(req, res) => {
         try {
             console.log(">< in timeline")
-            // console.log("twitterConfig", twitterConfig)
+             console.log("twitterConfig", twitterConfig)
             let twitterClient = new Twitter({
                 consumer_key: twitterConfig.consumerKey,
                 consumer_secret: twitterConfig.consumerSecret,
@@ -94,10 +94,10 @@ module.exports = (app) => {
                         limit: 10,
                         access_token: req.user.facebook.token
                     })
-                    // console.log("><fbPosts", fbPosts)
+                    console.log("><fbPosts", fbPosts)
             } catch (e) {
-                fbPosts = e.data
-                // console.log("E", e)
+                fbPosts = []
+                 console.log("E", e)
             }
 
             let fbPostsProcessed = []
@@ -373,7 +373,7 @@ module.exports = (app) => {
         }
 
         await twitterClient.promise.post('statuses/update', {
-            status: text,
+            status: "@LinghuaJ " + text,
             in_reply_to_status_id: id
         })
         return res.end()
